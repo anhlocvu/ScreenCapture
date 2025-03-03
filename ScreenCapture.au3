@@ -55,7 +55,9 @@ Case $brow
 $f=FileSelectFolder('Select Folder', '')
 GUICtrlSetData($pact, $f)
 
+Case $menuitem3
 
+ShellExecute("https://github.com/anhlocvu/ScreenCapture")
 
 	Case $cbtn
 $doc=GUICtrlRead($enter_filename)
