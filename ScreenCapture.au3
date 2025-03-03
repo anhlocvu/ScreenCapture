@@ -16,6 +16,7 @@
 #include <ColorConstants.au3>
 #include <ScreenCapture.au3>
 $version="3.2"
+SoundPlay(@ScriptDir&"\sounds\logo.mp3")
 MsgBox(64,"welcome","ScreenCapture, version "& $version & " is running. Find what you want to capture screens and Control+Alt+C")
 HotKeySet('!^c', 'catture')
 While 1
@@ -24,6 +25,7 @@ WEnd
 
 
 Func catture()
+SoundPlay(@ScriptDir&"\sounds\inter face.mp3")
 $hg=GUICreate('Capture_', 300, 300)
 GUISetBkColor($COLOR_BLUE)
 $lb_filename=GUICtrlCreateLabel('&file name', 10, 10, 280, 20)
