@@ -41,8 +41,10 @@ $menu=GUICtrlCreateMenu("main")
 $menuitem1=GUICtrlCreateMenuItem("About", $menu)
 $menuitem2=GUICtrlCreateMenuItem("contact", $menu)
 $menuitem3=GUICtrlCreateMenuItem("See source code on github",$menu)
-$menuitem4=GUICtrlCreateMenuItem("exit", $menu)
 
+$menuitem5 = GuiCtrlCreateMenuItem("ReadMe", $menu)
+$menuitem6=GUICtrlCreateMenuItem("contribute",$menu)
+$menuitem4=GUICtrlCreateMenuItem("exit", $menu)
 GUISetState(@SW_SHOW, $hg)
 While True
 $msg=GUIGetMsg()
@@ -50,8 +52,11 @@ Switch $msg
 Case $GUI_EVENT_CLOSE, $menuitem4
 Exit
 
+	Case $menuitem6
+contribute()
 
-
+		Case $menuitem5
+ReadMe()
 Case $brow
 $f=FileSelectFolder('Select Folder', @ScriptDir)
 GUICtrlSetData($pact, $f)
@@ -105,6 +110,7 @@ Case $menuitem2
 
 contact()
 
+
 EndSwitch
 
 WEnd
@@ -117,10 +123,10 @@ Func contact()
 $contactgui=GUICreate("contact", 300, 300)
 GUISetBkColor($COLOR_BLUE)
 GUICtrlCreateLabel("Where do you want to contact me", 10, 5, 280, 30)
-$facebook=GUICtrlCreateButton("facebook", 10, 80, 280, 20)
-$email=GUICtrlCreateButton("email", 10, 120, 280, 20)
-$telegram=GUICtrlCreateButton("telegram", 10, 160, 280, 20)
-$back=GUICtrlCreateButton("go back", 10, 200, 280, 20)
+$facebook=GUICtrlCreateButton("&facebook", 10, 80, 280, 20)
+$email=GUICtrlCreateButton("&email", 10, 120, 280, 20)
+$telegram=GUICtrlCreateButton("&telegram", 10, 160, 280, 20)
+$back=GUICtrlCreateButton("go &back", 10, 200, 280, 20)
 GUISetState(@SW_SHOW, $contactgui)
 
 while True
@@ -140,7 +146,7 @@ EndIf
 
 if $msg=$email Then
 ClipPut("locvuu2105@gmail.com")
-MsgBox(0,"Email has been copied to Clipboard", "locvuu2105@gmail.com")
+MsgBox(64,"Email has been copied to Clipboard", "locvuu2105@gmail.com")
 
 EndIf
 
@@ -149,6 +155,49 @@ if $msg=$telegram Then
 ShellExecute("https://t.me/Loc2004")
 
 EndIf
+
+WEnd
+
+EndFunc
+Func ReadMe()
+$readmeGui = GuiCreate("ReadMe", 600, 600)
+GUISetBkColor($COLOR_BLUE)
+$fileReadme = FileRead("README.txt")
+    $readmebox = GUICtrlCreateEdit("", 120, 120, 380, 250, BitOR($ES_AUTOVSCROLL, $ES_READONLY, $WS_VSCROLL))
+GuiCtrlSetData($readmebox, $fileReadme)
+GuiSetState(@SW_SHOW, $readmeGui)
+While True
+Switch GuiGetMSG()
+Case $GUI_EVENT_CLOSE
+GuiDelete($readmeGui)
+ExitLoop
+endSwitch
+wEnd
+endFunc
+Func contribute()
+$cg=GUICreate("contribute", 600, 600)
+GUISetBkColor($COLOR_BLUE)
+GUICtrlCreateLabel("Thank you for these people for taking a lot of effort to contribute to Screen Capture", 10, 100, 580, 20)
+$list=GUICtrlCreateListView("list", 20, 100, 540, 580)
+GUICtrlCreateListViewItem("võ đình hùng", $list)
+GUICtrlCreateListViewItem("Võ đình hoàng", $list)
+GUICtrlCreateListViewItem("Nguyễn Ninh Hoàng", $list)
+$back_btn=GUICtrlCreateButton("go &back", 5, 10, 100, 60)
+GUISetState(@SW_SHOW, $cg)
+
+
+while 1
+
+
+Switch GUIGetMsg()
+	Case $GUI_EVENT_CLOSE, $back_btn
+GUIDelete($cg)
+ExitLoop
+
+
+
+
+EndSwitch
 
 WEnd
 
