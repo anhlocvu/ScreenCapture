@@ -1,12 +1,11 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=C:\Program Files (x86)\AutoIt3\Icons\MyAutoIt3_Blue.ico
-#AutoIt3Wrapper_Compile_Both=y
-#AutoIt3Wrapper_UseX64=y
+#AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_Res_Comment=Screen capture software
 #AutoIt3Wrapper_Res_Description=Screen capture software
-#AutoIt3Wrapper_Res_Fileversion=3.1
+#AutoIt3Wrapper_Res_Fileversion=3.2.0.0
 #AutoIt3Wrapper_Res_ProductName=ScreenCapture_
-#AutoIt3Wrapper_Res_ProductVersion=3.1
+#AutoIt3Wrapper_Res_ProductVersion=3.2
 #AutoIt3Wrapper_Res_CompanyName=anhloc
 #AutoIt3Wrapper_Res_LegalCopyright=anhloc
 #AutoIt3Wrapper_Res_LegalTradeMarks=technology entertainment
@@ -54,7 +53,7 @@ Exit
 
 
 Case $brow
-$f=FileSelectFolder('Select Folder', '')
+$f=FileSelectFolder('Select Folder', @ScriptDir)
 GUICtrlSetData($pact, $f)
 
 Case $menuitem3
