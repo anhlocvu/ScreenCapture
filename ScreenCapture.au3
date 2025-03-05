@@ -37,7 +37,7 @@ $brow=GUICtrlCreateButton('&browse', 250, 40, 50, 20)
 $jpg=GUICtrlCreateCheckbox('&jpg', 10, 80, 280,20)
 $png=GUICtrlCreateCheckbox('&png', 10, 200, 280,20)
 $cbtn=GUICtrlCreateButton("&capture",10,250,280,30)
-$menu=GUICtrlCreateMenu("main")
+$menu=GUICtrlCreateMenu("help and support")
 $menuitem1=GUICtrlCreateMenuItem("About", $menu)
 $menuitem2=GUICtrlCreateMenuItem("contact", $menu)
 $menuitem3=GUICtrlCreateMenuItem("See source code on github",$menu)
@@ -103,7 +103,7 @@ EndIf
 
 GUISetState(@SW_SHOW, $hg)
 Case $menuitem1
-MsgBox(0, "hello", "This is Screencapture software, this software will allow people to capture their screens if your computer does not have a screenshot function, such as a desktop, [PC]. Me, is anhloc LCBoy, who has made this software, if you want to contact me, find the Contact in Main Menu")
+MsgBox(0, "hello", "This is Screencapture software, this software will allow people to capture their screens if your computer does not have a screenshot function, such as a desktop, [PC]. Me, is anhloc LCBoy, who has made this software, if you want to contact me, find the Contact in help and support Menu")
 
 
 Case $menuitem2
@@ -179,7 +179,7 @@ $cg=GUICreate("contribute", 600, 600)
 GUISetBkColor($COLOR_BLUE)
 GUICtrlCreateLabel("Thank you for these people for taking a lot of effort to contribute to Screen Capture", 10, 100, 580, 20)
 $list=GUICtrlCreateListView("list", 20, 100, 540, 580)
-GUICtrlCreateListViewItem("võ đình hùng", $list)
+GUICtrlCreateListViewItem("võ đình hưng", $list)
 GUICtrlCreateListViewItem("Võ đình hoàng", $list)
 GUICtrlCreateListViewItem("Nguyễn Ninh Hoàng", $list)
 $back_btn=GUICtrlCreateButton("go &back", 5, 10, 100, 60)
