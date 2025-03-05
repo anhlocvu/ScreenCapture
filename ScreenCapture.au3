@@ -50,6 +50,7 @@ While True
 $msg=GUIGetMsg()
 Switch $msg
 Case $GUI_EVENT_CLOSE, $menuitem4
+SoundPlay("sounds/exit.mp3", 1)
 Exit
 
 	Case $menuitem6
@@ -58,6 +59,7 @@ contribute()
 		Case $menuitem5
 ReadMe()
 Case $brow
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $f=FileSelectFolder('Select Folder', @ScriptDir)
 GUICtrlSetData($pact, $f)
 
@@ -66,6 +68,7 @@ Case $menuitem3
 ShellExecute("https://github.com/anhlocvu/ScreenCapture")
 
 	Case $cbtn
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $doc=GUICtrlRead($enter_filename)
 if $doc="" Then
 MsgBox(16,"Error", "must enter the file name")
@@ -119,7 +122,7 @@ EndFunc
 
 Func contact()
 
-
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $contactgui=GUICreate("contact", 300, 300)
 GUISetBkColor($COLOR_BLUE)
 GUICtrlCreateLabel("Where do you want to contact me", 10, 5, 280, 30)
@@ -139,19 +142,20 @@ ExitLoop
 EndIf
 
 if $msg=$facebook Then
-
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 ShellExecute("https://www.facebook.com/anhloc2004/")
 
 EndIf
 
 if $msg=$email Then
 ClipPut("locvuu2105@gmail.com")
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 MsgBox(64,"Email has been copied to Clipboard", "locvuu2105@gmail.com")
 
 EndIf
 
 if $msg=$telegram Then
-
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 ShellExecute("https://t.me/Loc2004")
 
 EndIf
@@ -160,6 +164,7 @@ WEnd
 
 EndFunc
 Func ReadMe()
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $readmeGui = GuiCreate("ReadMe", 600, 600)
 GUISetBkColor($COLOR_BLUE)
 $fileReadme = FileRead("README.txt")
@@ -175,6 +180,7 @@ endSwitch
 wEnd
 endFunc
 Func contribute()
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $cg=GUICreate("contribute", 600, 600)
 GUISetBkColor($COLOR_BLUE)
 GUICtrlCreateLabel("Thank you for these people for taking a lot of effort to contribute to Screen Capture", 10, 100, 580, 20)
