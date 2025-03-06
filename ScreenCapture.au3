@@ -106,7 +106,7 @@ EndIf
 
 GUISetState(@SW_SHOW, $hg)
 Case $menuitem1
-MsgBox(0, "hello", "This is Screencapture software, this software will allow people to capture their screens if your computer does not have a screenshot function, such as a desktop, [PC]. Me, is anhloc LCBoy, who has made this software, if you want to contact me, find the Contact in help and support Menu")
+MsgBox(64, "hello", "This is Screencapture software, this software will allow people to capture their screens if your computer does not have a screenshot function, such as a desktop, [PC]. Me, is anhloc LCBoy, who has made this software, if you want to contact me, find the Contact in help and support Menu")
 
 
 Case $menuitem2
