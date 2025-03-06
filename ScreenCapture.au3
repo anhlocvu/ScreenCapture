@@ -43,8 +43,8 @@ $menuitem2=GUICtrlCreateMenuItem("contact", $menu)
 $menuitem3=GUICtrlCreateMenuItem("See source code on github",$menu)
 
 $menuitem5 = GuiCtrlCreateMenuItem("ReadMe", $menu)
-$menuitem6=GUICtrlCreateMenuItem("contribute",$menu)
-$menuitem4=GUICtrlCreateMenuItem("exit", $menu)
+$menuitem6=GUICtrlCreateMenuItem("c&ontribute",$menu)
+$menuitem4=GUICtrlCreateMenuItem("e&xit", $menu)
 GUISetState(@SW_SHOW, $hg)
 While True
 $msg=GUIGetMsg()
@@ -94,14 +94,14 @@ sleep(500)
 SoundPlay(@ScriptDir&"\sounds\capture.mp3")
 _ScreenCapture_Capture($f & '\' & $doc & '.jpg')
 MsgBox(64, 'hooray!', 'screenshot successful')
-
+Exit
 EndIf
 if GUICtrlRead($png)=1 Then
 sleep(500)
 _ScreenCapture_Capture($f & '\' & $doc & '.png')
 SoundPlay(@ScriptDir&"\sounds\capture.mp3")
 MsgBox(64, 'hooray!', 'screenshot successful')
-
+Exit
 EndIf
 
 GUISetState(@SW_SHOW, $hg)
