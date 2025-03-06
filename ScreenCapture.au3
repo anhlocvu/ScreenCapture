@@ -16,7 +16,7 @@
 #include <ScreenCapture.au3>
 $version="3.2"
 SoundPlay(@ScriptDir&"\sounds\logo.mp3")
-MsgBox(64,"welcome","ScreenCapture, version "& $version & " is running. Find what you want to capture screens and Control+Alt+C")
+MsgBox(0,"welcome","ScreenCapture, version "& $version & " is running. Find what you want to capture screens and Control+Alt+C")
 HotKeySet('!^c', 'catture')
 While 1
 Sleep(100)
@@ -30,13 +30,13 @@ GUISetBkColor($COLOR_BLUE)
 $lb_filename=GUICtrlCreateLabel('&file name', 10, 10, 280, 20)
 $enter_filename=GUICtrlCreateInput('', 10, 40, 199, 20)
 Global $f=@ScriptDir
-GUICtrlCreateLabel("Current f&older path",10,60,280,20)
-$pact=GUICtrlCreateInput($f,10,60,280,20)
+GUICtrlCreateLabel("Current f&older path",10,80,280,20)
+$pact=GUICtrlCreateInput($f,10,80,280,20)
 
-$brow=GUICtrlCreateButton('&browse', 250, 40, 50, 20)
-$jpg=GUICtrlCreateCheckbox('&jpg', 10, 80, 280,20)
-$png=GUICtrlCreateCheckbox('&png', 10, 200, 280,20)
-$cbtn=GUICtrlCreateButton("&capture",10,250,280,30)
+$brow=GUICtrlCreateButton('&browse', 230, 40, 70, 20)
+$jpg=GUICtrlCreateCheckbox('&jpg', 10, 100, 280,20)
+$png=GUICtrlCreateCheckbox('&png', 10, 140, 280,20)
+$cbtn=GUICtrlCreateButton("&capture", 100, 160, 100,30)
 $menu=GUICtrlCreateMenu("help and support")
 $menuitem1=GUICtrlCreateMenuItem("About", $menu)
 $menuitem2=GUICtrlCreateMenuItem("contact", $menu)
@@ -91,17 +91,17 @@ GUISetState(@SW_HIDE, $hg)
 if GUICtrlRead($jpg)=1 Then
 
 sleep(500)
-SoundPlay(@ScriptDir&"\sounds\capture.mp3")
+SoundPlay("sounds/capture.mp3")
 _ScreenCapture_Capture($f & '\' & $doc & '.jpg')
 MsgBox(64, 'hooray!', 'screenshot successful')
-Exit
+
 EndIf
 if GUICtrlRead($png)=1 Then
 sleep(500)
 _ScreenCapture_Capture($f & '\' & $doc & '.png')
-SoundPlay(@ScriptDir&"\sounds\capture.mp3")
+SoundPlay("sounds/capture.mp3")
 MsgBox(64, 'hooray!', 'screenshot successful')
-Exit
+
 EndIf
 
 GUISetState(@SW_SHOW, $hg)
