@@ -34,12 +34,19 @@ GUICtrlCreateLabel("Current f&older path",10,80,280,20)
 $pact=GUICtrlCreateInput($f,10,80,280,20)
 
 $brow=GUICtrlCreateButton('&browse', 230, 40, 70, 20)
-$jpg=GUICtrlCreateCheckbox('&jpg', 10, 100, 280,20)
-$png=GUICtrlCreateCheckbox('&png', 10, 140, 280,20)
+$jpg=GUICtrlCreateCheckbox('&jpg', 150, 100, 100,40, BitOR($BS_CHECKBOX, $WS_TABSTOP))
+$png=GUICtrlCreateCheckbox('&png', 150, 120, 100,40, BitOR($BS_CHECKBOX, $WS_TABSTOP))
+GUICtrlSetFont($jpg, 10, 400, 0, "Arial")
+GUICtrlSetFont($png, 10, 400, 0, "Arial")
+
+
 $cbtn=GUICtrlCreateButton("&capture", 100, 160, 100,30)
 $menu=GUICtrlCreateMenu("help and support")
 $menuitem1=GUICtrlCreateMenuItem("About", $menu)
-$menuitem2=GUICtrlCreateMenuItem("contact", $menu)
+$submenu=GUICtrlCreateMenu("contact me", $menu)
+$submenuitem1=GUICtrlCreateMenuItem("face book", $submenu)
+$submenuitem2=GUICtrlCreateMenuItem("email", $submenu)
+$submenuitem3=GUICtrlCreateMenuItem("telegram", $submenu)
 $menuitem3=GUICtrlCreateMenuItem("See source code on github",$menu)
 
 $menuitem5 = GuiCtrlCreateMenuItem("ReadMe", $menu)
@@ -108,10 +115,17 @@ GUISetState(@SW_SHOW, $hg)
 Case $menuitem1
 MsgBox(64, "hello", "This is Screencapture software, this software will allow people to capture their screens if your computer does not have a screenshot function, such as a desktop, [PC]. Me, is anhloc LCBoy, who has made this software, if you want to contact me, find the Contact in help and support Menu")
 
+	Case $submenuitem1
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
+ShellExecute("https://www.facebook.com/anhloc2004/")
+Case $submenuitem2
+ClipPut("locvuu2105@gmail.com")
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
+MsgBox(64,"Email has been copied to Clipboard", "locvuu2105@gmail.com")
+	Case $submenuitem3
+SoundPlay(@ScriptDir&"\sounds\enter.mp3")
+ShellExecute("https://t.me/Loc2004")
 
-Case $menuitem2
-
-contact()
 
 
 EndSwitch
@@ -120,49 +134,6 @@ WEnd
 
 EndFunc
 
-Func contact()
-
-SoundPlay(@ScriptDir&"\sounds\enter.mp3")
-$contactgui=GUICreate("contact", 300, 300)
-GUISetBkColor($COLOR_BLUE)
-GUICtrlCreateLabel("Where do you want to contact me", 10, 5, 280, 30)
-$facebook=GUICtrlCreateButton("&facebook", 10, 80, 280, 20)
-$email=GUICtrlCreateButton("&email", 10, 120, 280, 20)
-$telegram=GUICtrlCreateButton("&telegram", 10, 160, 280, 20)
-$back=GUICtrlCreateButton("go &back", 10, 200, 280, 20)
-GUISetState(@SW_SHOW, $contactgui)
-
-while True
-
-$msg=GUIGetMsg()
-if $msg=$GUI_EVENT_CLOSE or $msg=$back Then
-GUIDelete($contactgui)
-ExitLoop
-
-EndIf
-
-if $msg=$facebook Then
-SoundPlay(@ScriptDir&"\sounds\enter.mp3")
-ShellExecute("https://www.facebook.com/anhloc2004/")
-
-EndIf
-
-if $msg=$email Then
-ClipPut("locvuu2105@gmail.com")
-SoundPlay(@ScriptDir&"\sounds\enter.mp3")
-MsgBox(64,"Email has been copied to Clipboard", "locvuu2105@gmail.com")
-
-EndIf
-
-if $msg=$telegram Then
-SoundPlay(@ScriptDir&"\sounds\enter.mp3")
-ShellExecute("https://t.me/Loc2004")
-
-EndIf
-
-WEnd
-
-EndFunc
 Func ReadMe()
 SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $readmeGui = GuiCreate("ReadMe", 600, 600)
