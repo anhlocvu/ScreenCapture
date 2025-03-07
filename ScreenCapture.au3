@@ -11,9 +11,9 @@
 #AutoIt3Wrapper_Res_LegalTradeMarks=technology entertainment
 #AutoIt3Wrapper_Res_Language=1033
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
-#include <GUIConstants.au3>
-#include <ColorConstants.au3>
-#include <ScreenCapture.au3>
+#include "lib/GuiConstants.au3"
+#include "lib/ColorConstants.au3"
+#include "lib/ScreenCapture.au3"
 $version="3.2"
 SoundPlay(@ScriptDir&"\sounds\logo.mp3")
 MsgBox(0,"welcome","ScreenCapture, version "& $version & " is running. Find what you want to capture screens and Control+Alt+C")
