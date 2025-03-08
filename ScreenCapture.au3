@@ -34,14 +34,12 @@ GUICtrlCreateLabel("Current f&older path",10,80,280,20)
 $pact=GUICtrlCreateInput($f,10,80,280,20)
 
 $brow=GUICtrlCreateButton('&browse', 230, 40, 70, 20)
-$jpg=GUICtrlCreateCheckbox('&jpg', 150, 100, 100,40, BitOR($BS_CHECKBOX, $WS_TABSTOP))
-$png=GUICtrlCreateCheckbox('&png', 150, 120, 100,40, BitOR($BS_CHECKBOX, $WS_TABSTOP))
-GUICtrlSetFont($jpg, 10, 400, 0, "Arial")
-GUICtrlSetFont($png, 10, 400, 0, "Arial")
+$jpg=GUICtrlCreateCheckbox('&jpg', 150, 100, 100,40)
+$png=GUICtrlCreateCheckbox('&png', 150, 120, 100,40)
 
 
 $cbtn=GUICtrlCreateButton("&capture", 100, 160, 100,30)
-$cancel_btn=GUICtrlCreateButton("canc&el", 100, 200, 100, 30)
+$cancel_btn=GUICtrlCreateButton("cancel", 100, 200, 100, 30)
 $menu=GUICtrlCreateMenu("help and support")
 $menuitem1=GUICtrlCreateMenuItem("About", $menu)
 $submenu=GUICtrlCreateMenu("contact me", $menu)
