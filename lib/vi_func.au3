@@ -48,12 +48,26 @@ $menuitem3=GUICtrlCreateMenuItem("xem mã nguồn trên github",$menu)
 $menuitem5 = GuiCtrlCreateMenuItem("hướng dẫn", $menu)
 $menuitem6=GUICtrlCreateMenuItem("người đóng &góp",$menu)
 $menuitem4=GUICtrlCreateMenuItem("th&oát", $menu)
+$langmenu=GUICtrlCreateMenu("ngôn ngữ")
+$langitem=GUICtrlCreateMenuItem("english",$langmenu)
+$langitem2=GUICtrlCreateMenuItem("tiếng việt", $langmenu)
+
 GUISetState(@SW_SHOW, $hg)
 While True
 $msg=GUIGetMsg()
 Switch $msg
 Case $GUI_EVENT_CLOSE, $menuitem4, $cancel_btn
 SoundPlay("sounds/exit.mp3", 1)
+Exit
+Case $langitem
+MsgBox(64,"cảnh báo:","phần mềm sẽ đóng lại để áp dụng cài đặt ngôn ngữ")
+$f=FileOpen("data/langselect.sct",2)
+FileWrite($f,"1")
+Exit
+Case $langitem2
+MsgBox(64,"cảnh báo:","phần mềm sẽ đóng lại để áp dụng cài đặt ngôn ngữ")
+$f=FileOpen("data/langselect.sct",2)
+FileWrite($f,"2")
 Exit
 
 	Case $menuitem6
@@ -138,7 +152,7 @@ Func huongdan()
 SoundPlay(@ScriptDir&"\sounds\enter.mp3")
 $readmeGui = GuiCreate("hướng dẫn", 600, 600)
 GUISetBkColor($COLOR_BLUE)
-$fileReadme = FileRead("dock/README.txt")
+$fileReadme = FileRead("dock/README vi.txt")
     $readmebox = GUICtrlCreateEdit("", 120, 120, 380, 250, BitOR($ES_AUTOVSCROLL, $ES_READONLY, $WS_VSCROLL))
 GuiCtrlSetData($readmebox, $fileReadme)
 GuiSetState(@SW_SHOW, $readmeGui)

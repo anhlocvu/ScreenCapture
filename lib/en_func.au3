@@ -48,6 +48,9 @@ $menuitem3=GUICtrlCreateMenuItem("See source code on github",$menu)
 $menuitem5 = GuiCtrlCreateMenuItem("ReadMe", $menu)
 $menuitem6=GUICtrlCreateMenuItem("c&ontribute",$menu)
 $menuitem4=GUICtrlCreateMenuItem("e&xit", $menu)
+$langmenu=GUICtrlCreateMenu("language")
+$langitem=GUICtrlCreateMenuItem("english",$langmenu)
+$langitem2=GUICtrlCreateMenuItem("tiếng việt", $langmenu)
 GUISetState(@SW_SHOW, $hg)
 While True
 $msg=GUIGetMsg()
@@ -55,6 +58,17 @@ Switch $msg
 Case $GUI_EVENT_CLOSE, $menuitem4, $cancel_btn
 SoundPlay("sounds/exit.mp3", 1)
 Exit
+Case $langitem
+MsgBox(64,"Warning:", "This will cause the software to close to apply language settings.")
+$f=FileOpen("data/langselect.sct",2)
+FileWrite($f,"1")
+Exit
+Case $langitem2
+MsgBox(64,"Warning:", "This will cause the software to close to apply language settings.")
+$f=FileOpen("data/langselect.sct",2)
+FileWrite($f,"2")
+Exit
+
 
 	Case $menuitem6
 contribute()
